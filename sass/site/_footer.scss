@@ -1,0 +1,192 @@
+footer {
+    float: left;
+    width: 100%;
+    background: $dark-gray;
+
+	.top-footer {
+		@include rem(padding-top, 60px);
+		@include rem(padding-bottom, 60px);
+
+		.weather, .contact-info, .rooms, .newsletter {
+			@include span-columns(1);
+			
+			@include media ($large-screen-up) {
+				@include span-columns(3);
+			}
+
+			h3 {
+				@include rem(font-size, 17px);
+				@include rem(margin, 0 0 20px 0);
+				text-transform: uppercase;
+				padding: 0;
+				color: white;
+				font-weight: 300;
+			}
+		}
+
+		.weather {
+
+			.weather-icon {
+				font-size: 50px;
+				font-style: normal;
+				color: $light-gray;
+				line-height: normal;
+			}
+
+			h3 {
+				margin-bottom: 0;
+			}
+
+			p {
+				color: $light-gray;
+				margin-bottom: 0;
+			}
+		}
+
+		.contact-info {
+
+			span {
+				color: white;
+			}
+		}
+
+		.rooms {
+
+			ul {
+				margin: 0;
+				list-style: none;
+			}
+		}
+
+		.newsletter {
+
+			#mc_embed_signup {
+				position: relative;
+
+				input[type="text"], input[type="email"], input[type="url"], input[type="password"], input[type="search"], textarea {
+					color: white;
+					border: black;
+					background: black;
+					border-radius: 0;
+					width: 100%;
+					box-shadow: none;
+					margin: 0;
+					padding-right: 55px;
+
+					&:hover, &:focus {
+						border-color: black;
+						box-shadow: none;
+					}
+				}
+
+				button, input[type="button"], input[type="reset"], input[type="submit"] {
+					border: none;
+					border-color: $brand-primary;
+					background: $brand-primary;
+					color: white;
+					border-radius: 0;
+					position: absolute;
+					right: 0;
+					top: 0;
+					@include rem(padding, 0 15px);
+					height: 100%;
+					line-height: 2.5;
+				}
+			}
+		}
+	}
+
+	.subfooter {
+		background: $brand-primary;
+		@include rem(padding-top, 20px);
+		@include rem(padding-bottom, 20px);
+		color: white;
+
+		a {
+			color: white;
+		}
+
+		.reviews {
+			float: left;
+
+			a {
+				@include rem(margin-right, 30px);
+			    float: left;
+
+				i, span {
+					float: left;
+				}
+
+				i {
+					@include rem(font-size, 24px);
+					@include rem(margin-right, 4px);
+					line-height: 2;
+				}
+
+				span {
+					line-height: 3.45;
+				}
+			}
+		}
+		
+		.social {
+			float: left;
+
+			ul {
+				list-style: none;
+				margin: 0;
+
+				li {
+					float: left;
+					@include rem(margin-right, 10px);
+
+					a {
+						border: 2px solid white;
+						@include rem(width, 34px);
+						float: left;
+						border-radius: 50%;
+						text-align: center;
+						line-height: 2.2;
+						@include rem(margin-top, 7px);
+					}
+				}
+			}
+		}
+
+		.sub-menu {
+			float: right;
+
+			ul {
+				list-style: none;
+				margin: 0;
+
+				li {
+					float: left;
+					line-height: 3.45;
+					font-size: 14px;
+
+					a {
+						border-right: 2px solid white;
+						padding-right: 10px;
+						margin-right: 10px;
+						font-family: $heading-font-family;
+						text-transform: uppercase;
+					}
+				}
+			}
+		}
+
+		.copyright {
+			float: right;
+
+			p {
+				float: left;
+				color: white;
+				line-height: 3.45;
+				margin: 0;
+				font-family: $heading-font-family;
+				text-transform: uppercase;
+			}
+		}
+	}
+}

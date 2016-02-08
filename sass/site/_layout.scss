@@ -1,0 +1,33 @@
+html, body {
+	height: 100%;
+}
+
+.clearfix {
+	@include clearfix;
+}
+
+#page {
+	height: 100%;
+}
+
+.wrapper {
+	@include outer-container;
+	@include rem(padding, 0 15px);
+}
+
+.row {
+	@include row;
+}
+
+.table {
+	display: table;
+	width: 100%;
+	height: 100%;
+}
+
+.cell {
+	display: table-cell;
+    vertical-align: middle;
+	width: 100%;
+	height: 100%;
+}

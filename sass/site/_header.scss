@@ -1,0 +1,92 @@
+#masthead {
+	background: white;
+	position: fixed;
+	width: 100%;
+	top: 0;
+	z-index: 10;
+	@include rem(height, 73px);
+
+	#logo {
+		display: none;
+
+		@include media ($medium-screen-up) {
+			display: block;
+			@include rem(width, 100px);
+			position: absolute;
+			@include rem(top, 21px);
+			@include rem(left, 120px);
+		}
+
+		@include media ($large-screen-up) {
+			left: 150px;
+		}
+	}
+
+	#slogan {
+		display: none;
+
+		@include media ($large-screen-up) {
+			display:block;
+			width: 100%;
+			position: absolute;
+			text-align: center;
+			@include rem(top, 21px);
+			z-index: -1;
+		}
+
+		h3 {
+			font-weight: 300;
+			@include rem(font-size, 20px);
+			margin: 0;
+			line-height: 1;
+		}
+	}
+
+	#links {
+		position: absolute;
+		right: 0;
+		z-index: 0;
+		
+		@include media ($medium-screen-up) {
+			width: auto;
+		}
+
+
+		a {
+			@include rem(width, 165px);
+			float: left;
+			line-height: 3.1;
+			color: white;
+			text-align: center;
+			@include rem(padding, 15px 30px);
+
+			&.blue {
+				background: $blue
+			}
+			
+			&.teal {
+				background: $brand-primary;
+			}
+
+			&.trip {
+
+				.fa, span {
+					display: block;
+				}
+
+				.fa {
+					@include rem(font-size, 24px);
+					@include rem(padding-bottom, 2px);
+				    line-height: 1;
+				}
+
+				em {
+					font-style: normal;
+					@include rem(padding-top, 3px);
+					display: block;	
+				    line-height: 1;				
+				}
+			}
+		}
+	}
+}

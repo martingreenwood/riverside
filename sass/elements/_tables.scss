@@ -1,0 +1,40 @@
+table {
+	//@include rem(margin, 0 0 15px);
+	//width: 100%;
+}
+
+
+.picker__weekday {
+	font-size: 22px;
+}
+
+.picker__month, .picker__year {
+    font-size: 24px;
+}
+
+.picker--focused .picker__day--highlighted, .picker__day--highlighted:hover, .picker__day--infocus:hover, .picker__day--outfocus:hover {
+    background: #f1f2f2;
+}
+
+.picker--focused .picker__day--selected, .picker__day--selected, .picker__day--selected:hover {
+    background: $brand-primary;
+}
+
+.picker__day--today:before {
+	border-top-color: $brand-primary;
+}
+
+.picker__nav--next:hover, .picker__nav--prev:hover {
+    background: $brand-primary;
+    color: white;
+
+    &:before {
+		border-left-color: white;
+    }
+}
+
+.picker__button--clear:hover, .picker__button--close:hover, .picker__button--today:hover {
+    color: white;
+    background: $brand-primary;
+    border-bottom-color: $brand-primary;
+}
