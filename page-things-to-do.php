@@ -1,60 +1,43 @@
 <?php
 /**
- * The main template file.
- *
- * This is the most generic template file in a WordPress theme
- * and one of the two required files for a theme (the other being style.css).
- * It is used to display a page when nothing more specific matches a query.
- * E.g., it puts together the home page when no home.php file exists.
- *
- * @link https://codex.wordpress.org/Template_Hierarchy
+ * The template for displaying the things to do page.
  *
  * @package riverside
  */
 
 get_header(); ?>
 
-	<div id="slider">
-		<?php 
-		$slider_images = get_field('slider_images');
-		if( $slider_images ): 
-		$sc=0;
-		foreach( $slider_images as $image ): $sc++; ?>
-		<div class="slide" style="background-image: url('<?php echo $image['url']; ?>')">
-			<div class="top-box">
-				<div class="head">
-					<?php if ($sc==1): ?>
-					<img src="<?php echo get_stylesheet_directory_uri() . '/assets/logo-alt.svg'; ?>" width="200px">
-					<?php endif; ?>
-					<h2><?php echo $image['title']; ?></h2>
-					<h3><?php echo $image['caption']; ?></h3>
+	<?php if ( has_post_thumbnail() ): ?>
+		<?php $post_thumbnail_url = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'full' ); ?>
+		<div id="feature-image" style="background-image: url(<?php echo $post_thumbnail_url[0]; ?>)">
+			<div class="table">
+				<div class="cell">
+					<h2><?php the_post_thumbnail_caption(); ?></h2>
+					<h3><?php the_post_thumbnail_description(); ?></h3>
 				</div>
 			</div>
-			<p><?php echo $image['description']; ?></p>
-			<div class="ovrly"></div>
 		</div>
-		<?php endforeach; endif; ?>
-	</div>
+	<?php endif; ?>
 
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main" role="main">
 
 			<?php while ( have_posts() ) : the_post(); ?>
 
-				<?php get_template_part( 'template-parts/content', 'homepage' ); ?>
+				<?php get_template_part( 'template-parts/content', 'page' ); ?>
 
 			<?php endwhile; // End of the loop. ?>
 
 		</main><!-- #main -->
 	</div><!-- #primary -->
 
-<?php if( have_rows('blocks') ): ?>
+<?php if( have_rows('ttd_blocks') ): ?>
 <section id="blocks">
 	
 	<div class="wrapper">
 
 		<div class="row">
-			<?php while ( have_rows('blocks') ) : the_row(); ?>
+			<?php while ( have_rows('ttd_blocks') ) : the_row(); ?>
 			<?php $blockImage = get_sub_field('block_image'); ?>
 			<div class="block" style="background-image: url(<?php echo $blockImage['url']; ?>)">
 

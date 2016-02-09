@@ -27,7 +27,7 @@
 		<div class="row">
 	
 			<div id="logo">
-				<img src="<?php echo get_stylesheet_directory_uri() . '/assets/logo.svg'; ?>" width="100px">
+				<a href="<?php echo home_url(	); ?>"><img src="<?php echo get_stylesheet_directory_uri() . '/assets/logo.svg'; ?>" width="100px"></a>
 			</div><!-- .site-branding -->
 
 			<div id="navigation">
@@ -38,8 +38,8 @@
 			</div>
 
 			<div id="links">
-				<a href="#book" class="teal email">Book Your Stay</a>
-				<a href="<?php home_url( '/offers' ); ?>" class="blue trip">Offers</a>
+				<a href="<?php echo home_url( '/our-rooms' ); ?>#rooms" class="teal email">Book Your Stay</a>
+				<a href="<?php echo home_url( '/offers' ); ?>" class="blue trip">Offers</a>
 			</div>
 
 		</div>

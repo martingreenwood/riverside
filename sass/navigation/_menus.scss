@@ -20,7 +20,7 @@
 		padding-left: 0;
 		float: left;
 		width: 100%;
-		line-height: 5.25;
+		line-height: 5.65;
 
 		@include media($large-screen-up) {
 			text-align: center;
@@ -79,6 +79,7 @@
 
 	a {
 		display: block;
+		font-size: 14px;
 		text-decoration: none;
 		color: $heading-color;
 		transition: color 300ms ease-in-out;

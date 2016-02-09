@@ -48,6 +48,7 @@ function riverside_setup() {
 	register_nav_menus( array(
 		'primary' => esc_html__( 'Primary Menu', 'riverside' ),
 		'sub-footer' => esc_html__( 'Sub Footer Menu', 'riverside' ),
+		'booking' => esc_html__( 'Booking Menu', 'riverside' ),
 	) );
 
 	/*

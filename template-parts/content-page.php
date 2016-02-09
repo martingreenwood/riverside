@@ -10,31 +10,39 @@
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-	<header class="entry-header">
-		<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
-	</header><!-- .entry-header -->
+	
+	<div class="wrapper">
+		<div class="row">
 
-	<div class="entry-content">
-		<?php the_content(); ?>
-		<?php
-			wp_link_pages( array(
-				'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'riverside' ),
-				'after'  => '</div>',
-			) );
-		?>
-	</div><!-- .entry-content -->
+			<header class="entry-header">
+				<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
+			</header><!-- .entry-header -->
 
-	<footer class="entry-footer">
-		<?php
-			edit_post_link(
-				sprintf(
-					/* translators: %s: Name of current post */
-					esc_html__( 'Edit %s', 'riverside' ),
-					the_title( '<span class="screen-reader-text">"', '"</span>', false )
-				),
-				'<span class="edit-link">',
-				'</span>'
-			);
-		?>
-	</footer><!-- .entry-footer -->
+			<div class="entry-content">
+				<?php the_content(); ?>
+			</div><!-- .entry-content -->
+
+		</div>
+	</div>
+
 </article><!-- #post-## -->
+
+<?php if (get_field('show_columns')): ?>
+<div class="columns">
+
+	<div class="wrapper">
+		<div class="row">
+
+			<div class="column">
+			<?php the_field('left_content'); ?>
+			</div>
+
+			<div class="column">
+			<?php the_field('right_content'); ?>
+			</div>
+
+		</div>
+	</div>
+
+</div>
+<?php endif; ?>

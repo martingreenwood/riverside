@@ -103,33 +103,3 @@
 	</div>
 
 </article>
-
-<section id="extra">
-	
-	<div class="wrapper">
-		
-		<div class="row">
-
-			<header class="heading">
-				<h2><?php the_field('additional_header'); ?></h2>
-			</header>
-
-			<div class="pagelinks">
-
-				<div class="link">
-					<h2>Things to do</h2>
-					<a href="<?php home_url( '/things-to-do' ); ?>">In the local area</a>
-				</div>
-
-				<div class="link">
-					<h2>Packages &amp; Offers</h2>
-					<a href="#">Next Available Dates</a>
-				</div>
-
-			</div>
-			
-		</div>
-
-	</div>
-
-</section>
