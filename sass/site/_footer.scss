@@ -3,15 +3,33 @@ footer {
     width: 100%;
     background: $dark-gray;
 
+	.credit {
+	    float: right;
+	    width: 100%;
+	    text-align: right;
+
+		p {
+		    line-height: 2;
+		    margin: 0;
+		}
+	}
+
 	.top-footer {
 		@include rem(padding-top, 60px);
 		@include rem(padding-bottom, 60px);
 
 		.weather, .contact-info, .rooms, .newsletter {
-			@include span-columns(1);
+			float: left;
+			width: 100%;
+			margin-bottom: 20px;
 			
+			@include media ($medium-screen-up) {
+				width: 50%;
+			}
+
 			@include media ($large-screen-up) {
 				@include span-columns(3);
+				margin-bottom: 0;
 			}
 
 			h3 {
@@ -107,7 +125,11 @@ footer {
 		}
 
 		.reviews {
-			float: left;
+			@include span-columns(1);
+			
+			@include media ($large-screen-up) {
+				@include span-columns(3);
+			}
 
 			a {
 				@include rem(margin-right, 30px);
@@ -130,7 +152,11 @@ footer {
 		}
 		
 		.social {
-			float: left;
+			@include span-columns(1);
+
+			@include media ($medium-screen-up) {
+				@include span-columns(3);
+			}
 
 			ul {
 				list-style: none;
@@ -142,19 +168,27 @@ footer {
 
 					a {
 						border: 2px solid white;
-						@include rem(width, 34px);
+						@include rem(width, 32px);
 						float: left;
 						border-radius: 50%;
 						text-align: center;
-						line-height: 2.2;
+						line-height: 1.8;
 						@include rem(margin-top, 7px);
+
+						@include media ($medium-screen-up) {
+							line-height: 2.2;
+						}
 					}
 				}
 			}
 		}
 
 		.sub-menu {
-			float: right;
+			float: left;
+
+			@include media ($medium-screen-up) {
+				float: right;
+			}
 
 			ul {
 				list-style: none;
@@ -177,7 +211,11 @@ footer {
 		}
 
 		.copyright {
-			float: right;
+			float: left;
+
+			@include media ($medium-screen-up) {
+				float: right;
+			}
 
 			p {
 				float: left;

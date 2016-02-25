@@ -5,6 +5,40 @@
 	margin-right: auto;
 }
 
+// LINE
+@mixin small-center-line($w, $h, $nm) {
+	content: "";
+	width: $w;
+	height: $h;
+	background: $heading-color;
+	position: absolute;
+	bottom: 0;
+	left: 50%;
+	margin-left: $nm;
+}
+
+@mixin small-left-line($w, $h) {
+	content: "";
+	width: $w;
+	height: $h;
+	background: $heading-color;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	margin-left: 0;
+}
+
+@mixin small-top-center-line($w, $h, $nm) {
+	content: "";
+	width: $w;
+	height: $h;
+	background: $heading-color;
+	position: absolute;
+	top: 0;
+	left: 50%;
+	margin-left: $nm;
+}
+
 // Create REM values with PX fall back
 //
 // Generate a REM with PX fallback from 
@@ -87,4 +121,46 @@ $baseFontSize: 10; // Based on HTML reset html { font-size: 62.5%; }
 	}
 	
 	@return $return;
+}
+
+@-webkit-keyframes bounce {
+	0%, 20%, 50%, 80%, 100% {
+    -webkit-transform: translateY(0);
+    transform: translateX(0);
+  }
+	40% {
+    -webkit-transform: translateY(-30px);
+    transform: translateY(-30px);
+  }
+	60% {
+    -webkit-transform: translateY(-15px);
+    transform: translateY(-15px);
+  }
+}
+
+@-moz-keyframes bounce {
+	0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+	40% {
+    transform: translateY(-30px);
+  }
+	60% {
+    transform: translateY(-15px);
+  }
+}
+
+@keyframes bounce {
+	0%, 20%, 50%, 80%, 100% {
+    -ms-transform: translateY(0);
+    transform: translateY(0);
+  }
+	40% {
+    -ms-transform: translateY(-30px);
+    transform: translateY(-30px);
+  }
+	60% {
+    -ms-transform: translateY(-15px);
+    transform: translateY(-15px);
+  }
 }

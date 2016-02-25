@@ -20,12 +20,16 @@
 		padding-left: 0;
 		float: left;
 		width: 100%;
-		line-height: 5.65;
+		line-height: 2.65;
+
+		@include media($large-screen-up) {
+			line-height: 5.65;
+		}
 
 		@include media($large-screen-up) {
 			text-align: center;
 		}
-
+		
 		ul {
 			float: left;
 			position: absolute;
@@ -68,8 +72,12 @@
 	li {
 		position: relative;
 		display: inline-block;
-		margin: 0 10px;
+		margin: 0 20px;
 		text-transform: uppercase;
+
+		@include media($medium-screen-up) {
+			margin: 0 10px;
+		}
 		
 		&:hover > a,
 		&.focus > a {
@@ -94,12 +102,34 @@
 }
 
 /* Small menu. */
-.menu-toggle,
-.main-navigation.toggled ul {
+.menu-toggle {
 	display: block;
+    float: right;
+    margin: 14px;
+    border-radius: 0;
+    border: 0;
+	font-size: 36px;
+	padding: 0 11px;
+	line-height: 1.32;
 }
 
-@include media ($medium-screen-up) {
+.main-navigation.toggled ul {
+	display: block;
+	list-style: none;
+	margin: 0;
+	padding-left: 0;
+	float: left;
+	width: 100%;
+	line-height: 5.65;
+	background: white;
+	top: 73px;
+	z-index: -1;
+	position: absolute;
+	padding-top: 50px;
+	text-align: center;
+}
+
+@include media ($tablet-screen-up) {
 	.menu-toggle {
 		display: none;
 	}

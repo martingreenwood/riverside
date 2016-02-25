@@ -39,16 +39,19 @@ get_header(); ?>
 		<div class="row">
 			<?php while ( have_rows('ttd_blocks') ) : the_row(); ?>
 			<?php $blockImage = get_sub_field('block_image'); ?>
-			<div class="block" style="background-image: url(<?php echo $blockImage['url']; ?>)">
+			<div class="block">
 
-				<div class="text">
+				<div class="img column" style="background-image: url(<?php echo $blockImage['url']; ?>)">
+				</div>
+
+				<div class="text column">
 
 					<div class="table">
 						<div class="cell">
 							<span><?php the_sub_field('block_title'); ?></span>
 							<h3><?php the_sub_field('block_heading'); ?></h3>
 							<p><?php the_sub_field('block_text'); ?></p>
-							<a href="<?php the_sub_field('block_link'); ?>">Read More <i class="fa fa-long-arrow-right"></i></a>
+							<a target="_blank" href="<?php the_sub_field('block_link'); ?>">Read More <i class="fa fa-long-arrow-right"></i></a>
 						</div>
 					</div>
 
@@ -72,7 +75,7 @@ get_header(); ?>
 			<div class="table">
 				<div class="cell">
 					<?php the_field('pf_content'); ?>
-					<a class="button" href="#book">Book Your Stay</a>
+					<a class="button" href="<?php the_field('pf_link'); ?>">Book Your Stay</a>
 				</div>
 			</div>
 
@@ -81,5 +84,38 @@ get_header(); ?>
 	</div>
 
 </section>
+
+<?php if(get_field('show_bottom_block')): ?>
+<section id="extra">
+	
+	<div class="wrapper">
+		
+		<div class="row">
+
+			<header class="heading">
+				<h2><?php the_field('additional_header'); ?></h2>
+			</header>
+
+			<div class="pagelinks">
+
+				<div class="link">
+					<h2><?php the_field('plo_heading'); ?></h2>
+					<a href="<?php the_field('plo_link'); ?>"><?php the_field('plo_text'); ?></a>
+				</div>
+
+				<div class="link">
+					<h2><?php the_field('plt_heading'); ?></h2>
+					<a href="<?php the_field('plt_link'); ?>"><?php the_field('plt_text'); ?></a>
+				</div>
+
+			</div>
+			
+		</div>
+
+	</div>
+
+</section>
+<?php endif; ?>
+
 
 <?php get_footer(); ?>

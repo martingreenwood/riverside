@@ -15,6 +15,7 @@
 get_header(); ?>
 
 	<div id="slider">
+		<div class="slick fade">
 		<?php 
 		$slider_images = get_field('slider_images');
 		if( $slider_images ): 
@@ -24,16 +25,20 @@ get_header(); ?>
 			<div class="top-box">
 				<div class="head">
 					<?php if ($sc==1): ?>
-					<img src="<?php echo get_stylesheet_directory_uri() . '/assets/logo-alt.svg'; ?>" width="200px">
-					<?php endif; ?>
+					<img src="<?php echo get_stylesheet_directory_uri() . '/assets/logo-alt.svg'; ?>" width="600px">
+					<?php else: ?>
 					<h2><?php echo $image['title']; ?></h2>
 					<h3><?php echo $image['caption']; ?></h3>
+					<?php endif; ?>
 				</div>
 			</div>
+			<span><?php echo $image['alt']; ?></span>
 			<p><?php echo $image['description']; ?></p>
 			<div class="ovrly"></div>
 		</div>
 		<?php endforeach; endif; ?>
+		</div>
+		<div class="arrow bounce"></div>
 	</div>
 
 	<div id="primary" class="content-area">
@@ -56,9 +61,12 @@ get_header(); ?>
 		<div class="row">
 			<?php while ( have_rows('blocks') ) : the_row(); ?>
 			<?php $blockImage = get_sub_field('block_image'); ?>
-			<div class="block" style="background-image: url(<?php echo $blockImage['url']; ?>)">
+			<div class="block">
 
-				<div class="text">
+				<div class="img column" style="background-image: url(<?php echo $blockImage['url']; ?>)">
+				</div>
+
+				<div class="text column">
 
 					<div class="table">
 						<div class="cell">
@@ -80,6 +88,39 @@ get_header(); ?>
 </section>
 <?php endif; ?>
 
+<?php if(get_field('show_bottom_block')): ?>
+<section id="extra">
+	
+	<div class="wrapper">
+		
+		<div class="row">
+
+			<header class="heading">
+				<h2><?php the_field('additional_header'); ?></h2>
+			</header>
+
+			<div class="pagelinks">
+
+				<div class="link">
+					<h2><?php the_field('plo_heading'); ?></h2>
+					<a href="<?php the_field('plo_link'); ?>"><?php the_field('plo_text'); ?></a>
+				</div>
+
+				<div class="link">
+					<h2><?php the_field('plt_heading'); ?></h2>
+					<a href="<?php the_field('plt_link'); ?>"><?php the_field('plt_text'); ?></a>
+				</div>
+
+			</div>
+			
+		</div>
+
+	</div>
+
+</section>
+<?php endif; ?>
+
+
 <section id="book" style="background-image: url(<?php the_field('pf_bg_image'); ?>)">
 
 	<div class="wrapper">
@@ -89,7 +130,7 @@ get_header(); ?>
 			<div class="table">
 				<div class="cell">
 					<?php the_field('pf_content'); ?>
-					<a class="button" href="#book">Book Your Stay</a>
+					<a class="button" href="<?php the_field('pf_link'); ?>">Book Your Stay</a>
 				</div>
 			</div>
 

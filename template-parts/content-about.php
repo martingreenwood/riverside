@@ -41,21 +41,11 @@
 				</div>
 
 				<div class="assistance">
-					<h3>Need to Speak to Someone?</h3>
-					<h4>Book your stay over the phone by calling <?php the_field('phone_number', 'option'); ?></h4>
+					<h3><?php the_field('booking_text_line_one', 'option'); ?></h3>
+					<h4><?php the_field('booking_text_line_one_two', 'option'); ?></h4>
 				</div>
 
 				<div id="availability">
-
-					<!--<script id="InnStyle-js" src="http://developer.innstyle.co.uk/calendar.js"></script>
-					<script>InnStyle('riversideescape', {
-						bookable: 11571,
-						color: 'light',
-						policy: 'hide',
-						calendar: 'show',
-						packages: 'show',
-						datepicker: 'only'
-					});</script>-->
 
 					<form accept-charset="UTF-8" target="_blank" method="GET" action="https://riversideescape.innstyle.co.uk/enquiry">
 						
@@ -78,8 +68,6 @@
 								<option value="2">0</option>
 								<option value="1">1</option>
 								<option value="2">2</option>
-								<option value="3">3</option>
-								<option value="4">4</option>
 							</select>
 							</div>
 

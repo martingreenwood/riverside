@@ -65,9 +65,43 @@ get_header(); ?>
 					</div>
 				
 				<?php endwhile; ?>
+				<?php wp_reset_query(); ?>
+				<?php wp_reset_postdata(); ?>
 
 			</div>
 		</div>
 	</section>
+
+<?php if(get_field('show_bottom_block')): ?>
+<section id="extra">
+	
+	<div class="wrapper">
+		
+		<div class="row">
+
+			<header class="heading">
+				<h2><?php the_field('additional_header'); ?></h2>
+			</header>
+
+			<div class="pagelinks">
+
+				<div class="link">
+					<h2><?php the_field('plo_heading'); ?></h2>
+					<a href="<?php the_field('plo_link'); ?>"><?php the_field('plo_text'); ?></a>
+				</div>
+
+				<div class="link">
+					<h2><?php the_field('plt_heading'); ?></h2>
+					<a href="<?php the_field('plt_link'); ?>"><?php the_field('plt_text'); ?></a>
+				</div>
+
+			</div>
+			
+		</div>
+
+	</div>
+
+</section>
+<?php endif; ?>
 
 <?php get_footer(); ?>

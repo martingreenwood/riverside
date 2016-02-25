@@ -1,3 +1,7 @@
+<!--
+* Built by Pixel Pudu 
+* http://www.pixelpudu.com/
+-->
 <?php
 /**
  * The header for our theme.

@@ -31,6 +31,7 @@ get_header(); ?>
 		</main><!-- #main -->
 	</div><!-- #primary -->
 
+<?php if(get_field('show_bottom_block')): ?>
 <section id="extra">
 	
 	<div class="wrapper">
@@ -44,13 +45,13 @@ get_header(); ?>
 			<div class="pagelinks">
 
 				<div class="link">
-					<h2>Things to do</h2>
-					<a href="<?php home_url( '/things-to-do' ); ?>">In the local area</a>
+					<h2><?php the_field('plo_heading'); ?></h2>
+					<a href="<?php the_field('plo_link'); ?>"><?php the_field('plo_text'); ?></a>
 				</div>
 
 				<div class="link">
-					<h2>Packages &amp; Offers</h2>
-					<a href="#">Next Available Dates</a>
+					<h2><?php the_field('plt_heading'); ?></h2>
+					<a href="<?php the_field('plt_link'); ?>"><?php the_field('plt_text'); ?></a>
 				</div>
 
 			</div>
@@ -60,5 +61,6 @@ get_header(); ?>
 	</div>
 
 </section>
+<?php endif; ?>
 
 <?php get_footer(); ?>

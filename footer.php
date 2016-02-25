@@ -160,6 +160,10 @@
 						</nav>
 					</div>
 
+					<div class="credit">
+						<p><a href="http://www.carneand.co.uk" rel="nofollow" target="_blank">Design and Build / Carne &amp; Co</a></p>
+					</div>
+
 				</div>
 
 			</div>

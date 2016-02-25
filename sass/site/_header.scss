@@ -7,18 +7,19 @@
 	@include rem(height, 73px);
 
 	#logo {
-		display: none;
+		position: absolute;
+		@include rem(width, 70px);
+		@include rem(top, 38px);
+		@include rem(left, 10px);
 
 		@include media ($medium-screen-up) {
-			display: block;
 			@include rem(width, 100px);
-			position: absolute;
 			@include rem(top, 21px);
 			@include rem(left, 120px);
 		}
 
 		@include media ($large-screen-up) {
-			left: 150px;
+			@include rem(left, 150px);
 		}
 	}
 
@@ -43,12 +44,14 @@
 	}
 
 	#links {
+		display: none;
 		position: absolute;
 		right: 0;
 		z-index: 0;
 		
-		@include media ($medium-screen-up) {
+		@include media ($tablet-screen-up) {
 			width: auto;
+			display: block;
 		}
 
 
@@ -59,6 +62,11 @@
 			color: white;
 			text-align: center;
 			@include rem(padding, 15px 30px);
+
+			@include media($tablet-landscape-screen) {
+				@include rem(width, 125px);
+				@include rem(padding, 15px);
+			}
 
 			&.blue {
 				background: $blue

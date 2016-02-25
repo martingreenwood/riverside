@@ -37,3 +37,24 @@ img {
 }
 
 @import "tables";
+
+.arrow {
+	position: absolute;
+	bottom: 20px;
+	left: 50%;
+	margin-left:-20px;
+	width: 40px;
+	height: 22px;
+	background-image: url(assets/scroll-down.svg);
+	background-size: contain;
+	display: none;
+
+	@include media ($large-screen-up) {
+		display: block;
+	}
+}
+
+.bounce {
+	-webkit-animation: bounce 2s infinite;
+	animation: bounce 2s infinite;
+}

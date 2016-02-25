@@ -24,12 +24,12 @@
 	<div class="special-package">
 	<h2><?php the_field('sp_title'); ?></h2>
 	<h3><?php the_field('sp_text'); ?></h3>
-	<a class="button" href="#availability">Check Availability</a>
+	<a class="button" id="check_availability_button" data-modal-id="popup" href="#">Check Availability</a>
 	</div>
 
 </article>
 
-<section id="extra">
+<section id="room-details">
 
 	<div class="column">
 		<div class="slick">
@@ -46,22 +46,12 @@
 
 	<div class="column">
 
-
-
 		<div id="availability">
-
-			<!--<script id="InnStyle-js" src="http://developer.innstyle.co.uk/calendar.js"></script>
-			<script>InnStyle('riversideescape', {
-				bookable: 11571,
-				color: 'light',
-				policy: 'hide',
-				calendar: 'show',
-				packages: 'show',
-				datepicker: 'only'
-			});</script>-->
 
 			<form accept-charset="UTF-8" target="_blank" method="GET" action="https://riversideescape.innstyle.co.uk/enquiry">
 				
+				<input type="text" hidden="hidden" id="room_id" value="<?php the_field('room_id'); ?>" name="room_id">
+
 				<div class="row">
 					<p>
 						<label for="start_date">Arrive</label>
@@ -81,8 +71,6 @@
 						<option value="2">0</option>
 						<option value="1">1</option>
 						<option value="2">2</option>
-						<option value="3">3</option>
-						<option value="4">4</option>
 					</select>
 					</div>
 
@@ -92,7 +80,7 @@
 					<input id="bo" name="bo" type="hidden" value="1886">
 					<input name="utf8" type="hidden" value="✓">
 
-					<input class="button" name="commit" type="submit" value="Check Availability">
+					<input class="button" name="commit" type="submit" value="Book Your Stay">
 
 				</div>
 				
@@ -107,6 +95,7 @@
 		<div class="extras">
 
 			<div class="amenities">
+				<h3>Ammenities</h3>
 				<ul>
 					<?php
 					if( have_rows('room_amenities') ):
@@ -128,8 +117,8 @@
 			</div>
 
 			<div class="assistance">
-				<h3>Need to Speak to Someone?</h3>
-				<h4>Book your stay over the phone by calling <?php the_field('phone_number', 'option'); ?></h4>
+				<h3><?php the_field('booking_text_line_one', 'option'); ?></h3>
+				<h4><?php the_field('booking_text_line_one_two', 'option'); ?></h4>
 			</div>
 
 		</div>
@@ -137,3 +126,26 @@
 	</div>
 	
 </section>
+
+
+<div id="popup" class="modal-box">  
+	<header>
+		<a href="#" class="js-modal-close close">×</a>
+		<h3>Quick Look Availability</h3>
+	</header>
+	<div class="modal-body">
+
+		<script id="InnStyle-js" src="http://developer.innstyle.co.uk/calendar.js"></script>
+		<script>InnStyle('riversideescape', {
+			bookable: <?php the_field('room_id'); ?>,
+			policy: 'hide',
+			packages: 'hide',
+			calender: 'show',
+			secret: 'hide',
+		});</script>
+
+	</div>
+	<footer>
+		<a href="#" class="js-modal-close">Close Button</a>
+	</footer>
+</div>

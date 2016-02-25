@@ -1,8 +1,10 @@
 #slider {
     position: relative;
     width: 100%;
+    height: 100%;
     height: 100vh;
     float: left;
+    margin-bottom: 0;
 
     @include media ($large-screen-up) {
         min-height: 800px;
@@ -10,46 +12,71 @@
 
 	.slide {
 		width: 100%;
-		height: 100%;
+        height: 100%;
+		height: 100vh;
 		margin: 0;
 		background-position: center;
 		background-repeat: no-repeat;
 		background-size: cover;
-		position: absolute;
-    	top: 0;
+        position:relative;
+		//position: absolute;
+    	//top: 0;
 
         .top-box {
             display: table;
             width: 100%;
             height: 100%;
+            height: 100vh;
             text-align: center;
 
+            @include media ($large-screen-up) {
+            }
 
             .head {
                 display: table-cell;
                 vertical-align: middle;
                 width: 100%;
+                height: 100%;
                 z-index: 9;
                 position: relative;
 
                 img {
-                    width: 257px;
+                    display: inline-block;
+                    margin-top: -30px;
+                    width: 320px;
+                    @include rem(padding, 0 40px) ;
+
+                    @include media ($large-screen-up) {
+                        margin-top: -60px;
+                        width: 600px;
+                    }
                 }
 
                 h2 {
                     color: white;
-                    font-size: 70px;
+                    @include rem(font-size, 29px);
                     font-weight: 500;
                     margin: 0;
                     line-height: 1;
+                    @include rem(padding, 0 40px);
+
+                    @include media ($medium-screen-up) {
+                        @include rem(font-size, 70px);
+                    }
                 }
 
                 h3 {
                     color: white;
-                    font-size: 27px;
-                    text-transform: uppercase;
+                    @include rem(font-size, 20px);
+                    text-transform: normal;
+                    @include rem(padding, 0 50px);
+                    margin: 0;
                     font-weight: 300;
                     line-height: 1.5;
+
+                    @include media ($medium-screen-up) {
+                        @include rem(font-size, 27px);
+                    }
                 }
             }
         }
@@ -57,24 +84,24 @@
         p {
             font-family: $heading-font-family;
             position: absolute;
-            bottom: 100px;
+            bottom: 45px;
             width: 100%;
             text-align: center;
             color: white;
             z-index: 10;
-            font-size: 22px;
+            padding-top: 10px;
+            @include rem(font-size, 16px);
             margin: 0;
             font-weight: 300;
-            
+
+            @include media ($medium-screen-up) {
+                bottom: 100px;
+                @include rem(font-size, 22px);
+            }
+
             &:before {
-                content: "";
-                position: absolute;
-                height: 2px;
-                width: 100px;
-                background: white;
-                left: 50%;
-                margin-left: -50px;
-                top: -10px;
+                @include small-top-center-line(40px, 2px, -20px);
+                background-color: white;
             }
         }
 
@@ -89,6 +116,8 @@
 
     	span {
 			position: absolute;
+            font-size: 15px;
+            font-family: $heading-font-family;
 			z-index: 10;
 			bottom: 20px;
 			right: 20px;

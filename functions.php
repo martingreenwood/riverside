@@ -118,10 +118,6 @@ function riverside_scripts() {
 	wp_enqueue_style( 'slick-css', get_template_directory_uri().'/slick/slick.css' );
 	wp_enqueue_style( 'slick-thmee', get_template_directory_uri().'/slick/slick-theme.css' );
 
-	//wp_enqueue_style( 'jquery-ui-css', get_template_directory_uri().'/jquery-ui/jquery-ui.css' );
-	//wp_enqueue_style( 'jquery-ui-structure', get_template_directory_uri().'/jquery-ui/jquery-ui.structure.css' );
-	//wp_enqueue_style( 'jquery-ui-theme', get_template_directory_uri().'/jquery-ui/jquery-ui.theme.css' );
-
 	wp_enqueue_style( 'dp-css', get_template_directory_uri() . '/datepicker/compressed/themes/default.css' );
 	wp_enqueue_style( 'dp-css-date', get_template_directory_uri() . '/datepicker/compressed/themes/default.date.css' );
 
@@ -132,6 +128,8 @@ function riverside_scripts() {
 	wp_enqueue_script( 'dp-js', get_template_directory_uri() . '/datepicker/compressed/picker.js', array(), '', true );
 	wp_enqueue_script( 'dp-legacy', get_template_directory_uri() . '/datepicker/compressed/legacy.js', array(), '', true );
 	wp_enqueue_script( 'dp-date', get_template_directory_uri() . '/datepicker/compressed/picker.date.js', array(), '', true );
+
+	wp_enqueue_script( 'match', get_template_directory_uri() . '/js/jquery.matchHeight.js', array(), '', true );
 
 	wp_enqueue_script( 'gmap', 'https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false', '', '', true );
 

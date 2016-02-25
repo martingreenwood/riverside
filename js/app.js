@@ -1,9 +1,9 @@
+var $j = jQuery;
+
 /*=================================
 =            JS SLIDER            =
 =================================*/
-
-var $j = jQuery;
-
+/*
 $j(function(){
 
     $j('.slide:gt(0)').hide(); // hide all but first element
@@ -33,8 +33,45 @@ $j(function(){
     //});
 
 });
+*/
 
-/*=====  End of JS SLIDER  ======*/
+$j(function($){
+
+	var appendthis =  ("<div class='modal-overlay js-modal-close'></div>");
+
+	$('a[data-modal-id]').click(function(e) {
+		e.preventDefault();
+		$("body").append(appendthis);
+		$(".modal-overlay").fadeTo(500, 0.7);
+		//$(".js-modalbox").fadeIn(500);
+		var modalBox = $(this).attr('data-modal-id');
+		$('#'+modalBox).fadeIn($(this).data());
+	});
+
+	$(".js-modal-close, .modal-overlay").click(function() {
+		$(".modal-box, .modal-overlay").fadeOut(500, function() {
+			$(".modal-overlay").remove();
+		});
+	});
+
+	$(window).resize(function() {
+		$(".modal-box").css({
+			top: ($(window).height() - $(".modal-box").outerHeight()) / 2,
+			left: ($(window).width() - $(".modal-box").outerWidth()) / 2
+		});
+	});
+
+	$(window).resize();
+ 
+});
+
+/*===================================
+=            MatchHeight            =
+===================================*/
+
+$j(function() {
+    $j('.block .column').matchHeight();
+});
 
 
 /*====================================
@@ -44,17 +81,18 @@ $j(function(){
 $j(function() {
     $j('.slick').slick({
         infinite: true,
-        dots: false
+        dots: false,
+        infinite: true,
+        fade: true,
+        speed: 800
     });
 });
-
-/*=====  End of Slick Slider  ======*/
-
 
 /*==================================
 =            Datepicker            =
 ==================================*/
 
+/*
 $j(function() {
     $j( "#start_date" ).pickadate({
         format: 'dd/mm/yyyy'
@@ -63,6 +101,64 @@ $j(function() {
     $j( "#departure_date" ).pickadate({
         format: 'dd/mm/yyyy'
     });
+});
+*/
+
+$j(function() {
+
+    // Depart date
+    var endDate = $j('#departure_date').pickadate({
+        today: '',
+        clear: '',
+        close: '',
+        formatSubmit: 'dd/mm/yyyy',
+        hiddenName: true,
+        min: new Date('today'),
+        //onClose: function(endDate) {
+            //var departDate = this.get('select', 'dd/mm/yyyy');
+            //console.log('Depart on ' + departDate);
+            //$j('#depart_date_full').val(departDate);
+
+            //var date1 = $j('#arrival_date_full').val();
+            //var date2 = $j('#depart_date_full').val();
+            //var date1a = new Date(date1);
+            //var date2a = new Date(date2);
+            //var lengthOfStay = getDateDiff(date1a, date2a, 'days');
+            //$j('#search_period').val(departDate);
+
+            //var weekday = new Array(7);
+            //weekday[0]=  "Sunday";
+            //weekday[1] = "Monday";
+            //weekday[2] = "Tuesday";
+            //weekday[3] = "Wednesday";
+            //weekday[4] = "Thursday";
+            //weekday[5] = "Friday";
+            //weekday[6] = "Saturday";
+            //var dayName = weekday[date1a.getDay()];
+
+            //$j('#arrival_date_day_of_week').val(dayName);
+        //}
+
+    });
+    
+    var picker_end_date = endDate.pickadate('picker');
+
+    // Arive date, onset change enddate
+    var startDate = $j('#start_date').pickadate({
+        today: '',
+        clear: '',
+        close: '',
+        formatSubmit: 'dd/mm/yyyy',
+        hiddenName: true,
+        min: new Date('today'),
+        onClose: function(endDate) {
+            var ariveDate = this.get('select', 'dd/mm/yyyy');
+            //console.log('Arive on ' + ariveDate);
+            //$j('#start_date').val(ariveDate);
+            picker_end_date.set('select', this.get('select').obj);
+        }
+    })
+
 });
 
 /*=====  End of Datepicker  ======*/
@@ -95,6 +191,8 @@ function new_map( $el ) {
     
     // vars
     var args = {
+        scrollwheel : false,
+        draggable   : false,
         zoom        : 16,
         center      : new google.maps.LatLng(0, 0),
         mapTypeId   : google.maps.MapTypeId.ROADMAP
