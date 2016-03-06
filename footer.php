@@ -108,7 +108,7 @@
 
 					<div class="newsletter">
 						<h3>Newsletter signup</h3>
-						<p>Signup for special offers</p>
+						<p>Signup for our newsletter</p>
 						<div id="mc_embed_signup">
 							<form action="//riversideescape.us12.list-manage.com/subscribe/post?u=bc71204308f3e60c28e530c80&amp;id=bbe11c8a9c" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
 								<div id="mc_embed_signup_scroll">

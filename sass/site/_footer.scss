@@ -141,8 +141,13 @@ footer {
 
 				i {
 					@include rem(font-size, 24px);
-					@include rem(margin-right, 4px);
-					line-height: 2;
+					@include rem(margin-right, 6px);
+					line-height: 2.3;
+					
+					@include media ($medium-screen-up) {
+						@include rem(margin-right, 4px);
+						line-height: 2;
+					}
 				}
 
 				span {

@@ -18,6 +18,7 @@ get_header(); ?>
 					<h3><?php the_post_thumbnail_description(); ?></h3>
 				</div>
 			</div>
+			<div class="overly"></div>
 		</div>
 	<?php endif; ?>
 

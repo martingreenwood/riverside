@@ -111,22 +111,45 @@
 	font-size: 36px;
 	padding: 0 11px;
 	line-height: 1.32;
+	position: absolute;
+	right: 0;
+	z-index: 2;
 }
 
-.main-navigation.toggled ul {
-	display: block;
-	list-style: none;
-	margin: 0;
-	padding-left: 0;
-	float: left;
-	width: 100%;
-	line-height: 5.65;
-	background: white;
-	top: 73px;
-	z-index: -1;
-	position: absolute;
-	padding-top: 50px;
-	text-align: center;
+.main-navigation.toggled {
+
+	.menu-toggle { 
+		color: white;
+	}
+
+	ul {
+		display: block;
+		list-style: none;
+		margin: 0;
+		padding-left: 0;
+		float: left;
+		width: 100%;
+		line-height: 5.65;
+		background: $brand-primary;
+		top: 0;
+		height: 100vh;
+		z-index: 1;
+		position: absolute;
+		padding-top: 100px;
+		text-align: center;
+
+		li {
+			width: 100%;
+			padding: 0;
+			margin: 0;
+			display: block;
+
+			a {
+				color: white;
+				line-height: 3;
+			}
+		}
+	}
 }
 
 @include media ($tablet-screen-up) {
